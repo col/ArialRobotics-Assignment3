@@ -64,26 +64,26 @@ des_yaw_dot = des_state.yawdot;
 %disp(['Desired - yaw:', num2str(des_yaw), ', yaw_dot:', num2str(des_yaw_dot)]);
 
 % PD Values
-kpz = 0.1;
-kdz = 0;
+kpz = 800;
+kdz = 60;
 
-kpx = 0.1;
-kdx = 0;
+kpx = 32;
+kdx = 2.4;
 
-kpy = 0.1;
-kdy = 0;
+kpy = 32;
+kdy = 3.2;
 
-kpphi = 0.1;
-kdphi = 0;
+kpphi = 160;
+kdphi = 2.6;
 
-kptheta = 0.1;
-kdtheta = 0;
+kptheta = 160;
+kdtheta = 2.6;
 
-kppsi = 0.1;
-kdpsi = 0;
+kppsi = 160;
+kdpsi = 2.6;
 
 % Thurst
-F = m * (g + des_z_ddot + kdz * (des_z_dot-z_dot) + kpz * (des_z-z));
+F = m * (g + des_z_ddot + kdz*(des_z_dot - z_dot) + kpz*(des_z - z));
 
 % Moment
 r1c = des_x_ddot + kdx * (des_x_dot - x_dot) + kpx * (des_x - x);
